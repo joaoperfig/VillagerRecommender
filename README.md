@@ -12,6 +12,11 @@ Get a sorted list of all ACNH villagers made for you and get recommendations on 
 
 ### Installation:
 
+1. Download the [latest release](https://github.com/joaoperfig/VillagerRecommender/releases/download/v1.0/VillagerRecommender.rar)  
+2. Unpack and run `VillagerRecommender.exe`  
+
+####OR  
+
 1. Install python 3  
 2. Clone this repository  
 3. Install requirements with the shell command `pip install -r requirements.txt`  

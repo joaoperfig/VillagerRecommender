@@ -15,7 +15,7 @@ Get a sorted list of all ACNH villagers made for you and get recommendations on 
 1. Download the [latest release](https://github.com/joaoperfig/VillagerRecommender/releases/download/v1.0/VillagerRecommender.rar)  
 2. Unpack and run `VillagerRecommender.exe`  
 
-####OR  
+###OR  
 
 1. Install python 3  
 2. Clone this repository  

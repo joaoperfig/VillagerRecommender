@@ -20,7 +20,7 @@ Get a sorted list of all ACNH villagers made for you and get recommendations on 
 1. Install python 3  
 2. Clone this repository  
 3. Install requirements with the shell command `pip install -r requirements.txt`  
-4. To run use the shell command `python main.py`  
+4. To run use the shell command `python3 main.py`  
 
 ### Usage:
 

@@ -70,7 +70,7 @@ def recommender(villagers, sorted):
             print("Request add villager",input)
             vilname = levnearest(input, list(villagers))
             print("Found similar", vilname)
-            if (not (vilname in list(myvils))) and (len(myvils) < 10):
+            if (not (vilname in myvilnames)) and (len(myvils) < 10):
                 pos = len(myvils)
                 myvils += [villagers[vilname]]
                 myvilnames += [vilname]

@@ -2,15 +2,14 @@ from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image
 import random
-from IPython import embed
 from sorter import get_sort, see_sort
 from utils import levnearest
+import sys
+import os
 
-version = 0.8
+version = 1.0
 
-f = open("villagers.txt", "r")
-villagers = eval(f.read())
-f.close()
+
 
 def recommender(villagers, sorted):
     top = 10
@@ -150,11 +149,13 @@ def main(villagers):
             f.close()
             ttk.Label(frm, text="Previous rank file found. Making a new rank file will override this.").grid(column=0, row=2)
             ttk.Button(frm, text="See Rank", command=lambda: var.set(2)).grid(column=0, row=4)
+            ttk.Label(frm, text="After ranking your villagers use this to get NMT island decision help:").grid(column=0, row=5)
+            ttk.Button(frm, text="Decision Helper", command=lambda: var.set(3)).grid(column=0, row=6)
         except:
             ttk.Label(frm, text="No rank file found. Please rank villagers first.").grid(column=0, row=2)
+            ttk.Label(frm, text="After ranking your villagers you can use the decision helper.").grid(column=0, row=5)
         ttk.Button(frm, text="Rank Villagers", command=lambda: var.set(1)).grid(column=0, row=3)
-        ttk.Label(frm, text="After ranking your villagers use this to get NMT island decision help:").grid(column=0, row=5)
-        ttk.Button(frm, text="Decision Helper", command=lambda: var.set(3)).grid(column=0, row=6)
+
         ttk.Button(frm, text="Exit", command=lambda: var.set(4)).grid(column=0, row=7)
 
         root.update()
@@ -172,7 +173,18 @@ def main(villagers):
         elif res==4:
             return
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
 
+    return os.path.join(base_path, relative_path)
 
 if __name__ == "__main__":
+    with open("villagers.txt", "r") as f:
+        villagers = eval(f.read())
+
     main(villagers)

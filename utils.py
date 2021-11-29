@@ -1,10 +1,11 @@
-import numpy
+#import numpy
 
 def levenshteinDistanceDP(token1, token2):
     token1 = token1.lower()
     token2 = token2.lower()
 
-    distances = numpy.zeros((len(token1) + 1, len(token2) + 1))
+    distances = [[0 for i in range(len(token2) + 1)] for j in range(len(token1) + 1)]
+    #distances = numpy.zeros((len(token1) + 1, len(token2) + 1))
 
     for t1 in range(len(token1) + 1):
         distances[t1][0] = t1

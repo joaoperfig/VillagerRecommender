@@ -2,12 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image
 import random
-from IPython import embed
 import time
-
-f = open("villagers.txt", "r")
-villagers = eval(f.read())
-f.close()
 
 def see_sort(villagers, sorted, top=10):
     root = Tk()
@@ -177,11 +172,14 @@ def get_sort(villagers, expected=2800):
     see_sort(villagers, sorted)
     return sorted
 
+
+
 if __name__ == "__main__":
+    with open("villagers.txt", "r") as f:
+        villagers = eval(f.read())
+
     sorted = get_sort(villagers)
     f = open("ranked.txt", "r")
     sorted = eval(f.read())
     f.close()
     see_sort(villagers, sorted)
-
-    embed()

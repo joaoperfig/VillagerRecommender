@@ -144,7 +144,7 @@ def main(villagers):
         ttk.Label(frm, text="Welcome to Villager Recommender").grid(column=0, row=0)
         ttk.Label(frm, text="To start you need to rank your villagers.").grid(column=0, row=1)
         try:
-            f = open("ranked.txt", "r")
+            f = open("ranked.txt", "r", encoding='ISO-8859-1')
             sorted = eval(f.read())
             f.close()
             ttk.Label(frm, text="Previous rank file found. Making a new rank file will override this.").grid(column=0, row=2)
@@ -184,7 +184,7 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 if __name__ == "__main__":
-    with open("villagers.txt", "r") as f:
+    with open("villagers.txt", "r", encoding='ISO-8859-1') as f:
         villagers = eval(f.read())
 
     main(villagers)

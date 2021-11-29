@@ -175,11 +175,11 @@ def get_sort(villagers, expected=2800):
 
 
 if __name__ == "__main__":
-    with open("villagers.txt", "r") as f:
+    with open("villagers.txt", "r", encoding='ISO-8859-1') as f:
         villagers = eval(f.read())
 
     sorted = get_sort(villagers)
-    f = open("ranked.txt", "r")
+    f = open("ranked.txt", "r", encoding='ISO-8859-1')
     sorted = eval(f.read())
     f.close()
     see_sort(villagers, sorted)

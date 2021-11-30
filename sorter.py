@@ -94,7 +94,7 @@ def get_sort(villagers, expected=2800):
                 image2 = ImageTk.PhotoImage(image2)
 
                 frm.grid()
-                ttk.Label(frm, text=str(int((100*count)/expected))+"%").grid(column=0, row=0)
+                ttk.Label(frm, text=str(min(int((100*count)/expected), 99))+"%").grid(column=0, row=0)
                 if count > 10:
                     secs_per_count = (time.time()-starttime)/count
                     mins = max(int((expected-count)*(secs_per_count/60)), 1)
@@ -119,6 +119,9 @@ def get_sort(villagers, expected=2800):
                 button2 = ttk.Button(frm, text="Preferable", command=lambda: var.set( 1)).grid(column=1, row=5)
                 root.bind('<Right>', lambda x : var.set(1))
                 root.update()
+
+                ttk.Label(frm, text='(or left arrow key)').grid(column=0, row=6)
+                ttk.Label(frm, text='(or right arrow key)').grid(column=1, row=6)
 
                 root.wait_variable(var,)
                 prefers1 = var.get() < 0

@@ -79,6 +79,7 @@ def recommender(villagers, sorted):
                 imagestop[pos] = imagestop[pos].resize((side, side), Image.ANTIALIAS)
                 imagestop[pos] = ImageTk.PhotoImage(imagestop[pos])
                 ttk.Label(frm2, image=imagestop[pos]).grid(column=pos, row=2)
+                ttk.Label(frm2, text=villager["Personality"]).grid(column=pos, row=3)
                 root.update()
         elif res == 2:
             frm5.destroy()

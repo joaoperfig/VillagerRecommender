@@ -3,6 +3,7 @@ from tkinter import ttk
 from PIL import ImageTk, Image
 import random
 import time
+from utils import levnearest
 
 def see_sort(villagers, sorted, top=10):
     root = Tk()
@@ -42,10 +43,33 @@ def see_sort(villagers, sorted, top=10):
         ttk.Label(frm, image=imagesbot[i]).grid(column=i, row=4)
         #root.update()
 
-    button = ttk.Button(frm, text="Continue", command=lambda: var.set(-1)).grid(column=(top-1), row=5)
+    ttk.Label(frm, text= " ").grid(column=0, row=5)
+
+    inputbox = Entry(frm)
+    inputbox.grid(column=(top-3), row=6)
+    button = ttk.Button(frm, text="Find Villager", command=lambda: var.set(2)).grid(column=(top-2), row=6)
+    button = ttk.Button(frm, text="Continue", command=lambda: var.set(1)).grid(column=(top-1), row=6)
     root.update()
-    root.wait_variable(var)
-    root.destroy()
+
+    while True:
+        root.wait_variable(var)
+        res = var.get()
+        if res == 1:
+            root.destroy()
+            Return
+        elif res == 2:
+            input = inputbox.get()
+            inputbox.delete(0, 'end')
+            print("Request find villager",input)
+            vilname = levnearest(input, list(villagers))
+            villager = villagers[vilname]
+            vilpos = sorted.index(vilname) + 1
+            ttk.Label(frm, text=str(vilpos)+". "+villager["Name"]).grid(column=1, row=6)
+            image = Image.open("images/"+villager["Poster"])
+            image = image.resize((side, side), Image.ANTIALIAS)
+            image = ImageTk.PhotoImage(image)
+            ttk.Label(frm, image=image).grid(column=0, row=6)
+            root.update()
 
 
 

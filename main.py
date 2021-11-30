@@ -7,7 +7,7 @@ from utils import levnearest
 import sys
 import os
 
-version = 1.0
+version = 1.01
 
 
 
